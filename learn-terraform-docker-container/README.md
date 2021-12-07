@@ -43,7 +43,7 @@ cd ../learn-terraform-docker-container
 
 ##### 3.2. Specify the environment
 
-Create a configuration file called ==main.tf== and place the infrastructure there.  
+Create a configuration file called `main.tf` and place the infrastructure there.  
 
 [Docker provider](https://registry.terraform.io/providers/kreuzwerker/docker/latest)
 
@@ -75,6 +75,12 @@ terraform plan
 
 ```shell
 terraform apply
+```
+
+or alterantively overriding a custom default variable
+
+```shell
+terraform apply -var "container_name=YetAnotherContainerName"
 ```
 
 ### How to run tests
