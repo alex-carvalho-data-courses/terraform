@@ -84,7 +84,7 @@ After the deployment
 #### Check terraform resourses state 
 
 ```shell
-terraform state
+terraform show
 ``` 
 
 #### List deployed resources (optional)
@@ -97,8 +97,7 @@ terraform state list
 
 In this case, a local nginx container:  
 
-[Welcome to nginx](http://localhost:8000/)
-
+[Welcome to nginx](http://localhost:8080/)
 
 ### Undeploy 
 
