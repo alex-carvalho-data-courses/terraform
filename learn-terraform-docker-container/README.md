@@ -105,6 +105,12 @@ In this case, a local nginx container:
 
 [Welcome to nginx](http://localhost:8080/)
 
+### Check terraform apply output
+
+```shell
+terraform output
+```
+
 ### Undeploy 
 
 #### Remove infrastructure
