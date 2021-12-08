@@ -113,7 +113,7 @@ terraform apply
 or alterantively overriding a custom default variable
 
 ```shell
-terraform apply -var "container_name=YetAnotherContainerName"
+terraform apply -var "instance_name=YetAnotherName"
 ```
 
 ### How to run tests
@@ -131,12 +131,6 @@ terraform show
 ```shell
 terraform state list
 ```
-
-#### Check if the infrastructure is running
-
-In this case, a local nginx container:  
-
-[Welcome to nginx](http://localhost:8080/)
 
 ### Check terraform apply output
 
