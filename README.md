@@ -14,8 +14,7 @@ The project folders reflect these vendors and have specifc instructinons.
 Currently covered courses/vendors in this repository:
 - [HashiCorp >> Terraform >> Get Started - Docker](https://learn.hashicorp.com/collections/terraform/docker-get-started)  
 
-
-### Version 1.1.0  
+### Version 1.2.0  
 
 ### [Learn Markdown](https://www.markdownguide.org/)
 
