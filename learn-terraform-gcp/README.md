@@ -30,15 +30,70 @@ Described in the README.md in this project's root folder.
 
 ##### 2.1. GCP Project
 
-CHANGE_ME
+In [gcp console](https://console.cloud.google.com/) create a new project.  
+
+For example:  
+| | |
+|---|---|
+| **Project name**  | terraform gcp project |
 
 ##### 2.1.1. enable Google Compute Engine
 
-CHANGE_ME
+Select the project >> Compute Engine >> APIs & Services
 
-##### 2.2. Service account key
+Press `+ ENABLE APIS AND SERVICES`  
 
-CHANGE_ME
+Search for:
+Compute Engine API
+
+Press `ENABLE` button
+
+#### 2.2. Service account key
+
+##### 2.2.1. Create service account
+
+Select the project >> IAM & Admin >> Service Accounts
+
+Press `+ CREATE SERVICE ACCOUNT`  button
+
+Config as follows:
+
+***Service account details***
+| | |
+|---|---|
+| **Service account name** | terraform gcp service account |
+| **Service account description** | service account to manage Compute Engines from Terraform| 
+
+Press `CREATE AND CONTINUE` button
+
+***Grant this account access to project***  
+| | |
+|---|---|
+| **Role** | Project >> Editor |
+
+Press `CONTINUE` button
+
+***Grant users access to this service account***  
+*skip*
+
+Press `Done` button
+
+##### 2.2.2. Create service account key
+
+Select the project >> IAM & Admin >> Service Accounts (last step will left you here)  
+
+Drilldown in the recently created `Service Account`.  
+
+Select `KEYS` tab.  
+
+Press `ADD KEY >> Create new key` button.
+
+Select `key type` as `JSON`.
+
+Press `CREATE` button.
+
+A file with de access key information will be downloaded automactilly.  
+
 
 #### 3. Initialize Terraform project
 
@@ -57,13 +112,13 @@ Create a configuration file called `main.tf` and place the infrastructure there.
 *Reference: https://registry.terraform.io/browse/providers*
 
 ##### 3.3. Validate Terraform configuration file
-CHANGE_ME (verify order with 3.4.)
+
 ```shell
 terraform validate
 ```
 
 ##### 3.4. Initialize Terraform
-CHANGE_ME (verify order with 3.3.)
+
 ```shell
 terraform init
 ```
@@ -84,10 +139,13 @@ terraform plan
 terraform apply
 ```
 
-or alterantively overriding a custom default variable
+the required parameters will be asked
 
+or alterantively pass them as arguments
+
+*Example:*
 ```shell
-terraform apply -var "instance_name=YetAnotherName"
+terraform apply -var "project=terraform-gcp-project-334512" -var "credentials_file=~/00alex/temp/gcp/terraform-gcp-project.json"
 ```
 
 ### How to run tests
