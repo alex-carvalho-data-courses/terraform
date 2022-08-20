@@ -137,7 +137,7 @@ export ARM_TENANT_ID="<TENANT_VALUE>"
 terraform apply
 ```
 
-optionaly apply infrastructure passing the resource group name as parameter
+optionaly apply infrastructure passing the resource group name as parameter  
 
 ```bash
 terraform apply -var "resource_group_name=myNewResourceGroupName"
