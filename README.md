@@ -1,4 +1,4 @@
-# HashiCorp - Terraform - Get Started #
+# <img src="img/terraform-logo.png" alt="Terraform" width="30" style="vertical-align: middle;"> | HashiCorp - Terraform - Get Started #
 
 ## What is this repository for? ##
 
