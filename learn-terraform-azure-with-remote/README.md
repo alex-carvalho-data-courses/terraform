@@ -1,4 +1,4 @@
-# <img src="../img/terraform-logo.png" alt="Terraform" width="30" style="vertical-align: middle;"> <img src="../img/azureDevOps-600x600.png" alt="azure" width="30" style="vertical-align: middle;"> | Hasicorp - Terraform - Azure - Tutorial #
+# <img src="../img/terraform-logo.png" alt="Terraform" width="30" style="vertical-align: middle;"> <img src="../img/azureDevOps-600x600.png" alt="azure" width="30" style="vertical-align: middle;"> | Hasicorp - Terraform - Azure - With Terraform Cloud backend - Tutorial #
 
 ## What is this repository for? ##
 
@@ -7,7 +7,7 @@
 Repository to follow the introductory [Terraform](https://www.hashicorp.com/products/terraform) courses from [HashiCorp](https://www.hashicorp.com/):  
 
 
-[HashiCorp >> Terraform >> Get Started - Azure](https://learn.hashicorp.com/collections/terraform/azure-get-started)  
+[HashiCorp >> Terraform >> Get Started - Azure >> Store Remote State](https://learn.hashicorp.com/tutorials/terraform/azure-remote?in=terraform/azure-get-started)  
 
 
 ## How do I get set up? ##
@@ -19,13 +19,17 @@ Repository to follow the introductory [Terraform](https://www.hashicorp.com/prod
 3. Configure azure client
 4. Create a service principal
 5. logout azure cli
-6. Set local environment variables
+6. Create Terraform Cloud Account
+7. Create an Organization at Terraform Cloud
+8. Authenticate with Terraform Cloud
+9. Set Terraform Cloud Environment Variables
 
 ### Dependencies
 
 - Azure Account
 - Azure Service Principal
 - Azure cli
+- Terraform cli
 
 ### Configuration
 
@@ -97,14 +101,37 @@ For Service Principal usage enforcement
 az logout
 ```
 
-#### 6. Set local environment variables
+#### 6. Create Terraform Cloud Account
+
+https://app.terraform.io/public/signup/account?utm_content=offers_tfc&utm_source=cloud_landing
+
+
+#### 7. Create an Organization at Terraform Cloud
+
+At the Terraform's website GUI create an Organization named:  
+`hashicorp-terraform-tutorials`
+
+#### 8. Authenticate with Terraform Cloud
 
 ```bash
-export ARM_CLIENT_ID="<APPID_VALUE>"
-export ARM_CLIENT_SECRET="<PASSWORD_VALUE>"
-export ARM_SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
-export ARM_TENANT_ID="<TENANT_VALUE>"
+terraform login
 ```
+
+#### 9. Set Terraform Cloud Environment Variables
+
+At the Terraform Cloud UI  
+Go to the recently create organization  
+`hashicorp-terraform-tutorials`  
+Select the workspace:  
+`learn-terraform-azure`  
+At the variables tab, configure as follows:
+| Environment Variable | AZ CLI                                               |
+|----------------------|------------------------------------------------------|
+| ARM_SUBSCRIPTION_ID	 | SUBSCRIPTION_ID from the last command's input.       |
+| ARM_CLIENT_ID	appID  | from the last command's output.                      |
+| ARM_CLIENT_SECRET	   | password from the last command's output. (Sensitive) |
+| ARM_TENANT_ID	       | tenant from the last command's output.               |
+
 
 ### How to run tests
 
